@@ -10,6 +10,7 @@
 
 //Internal Headers
 #include "FileHandle.h"
+#include "ChecksumCalculatorFactory.h"
 
 /**
  * @brief The FileManager singleton class Manages all the opened files

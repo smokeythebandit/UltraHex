@@ -8,7 +8,7 @@
 
 //Internal headers
 #include "FileReader.h"
-
+#include "ChecksumCalculatorManager.h"
 /**
  * @brief The FileHandle class Represents the handle to a opened file
  */
@@ -20,7 +20,7 @@ class FileHandle : public QObject
     Q_PROPERTY(QString fileName READ fileName CONSTANT)
     Q_PROPERTY(QFileInfo fileInfo READ fileInfo CONSTANT)
     Q_PROPERTY(FileReader* fileReader READ fileReader CONSTANT)
-
+    Q_PROPERTY(ChecksumCalculatorManager* calculatorManager READ calculatorManager CONSTANT)
     QML_UNCREATABLE("Can only be created by opening files in FileManager")
 public:
     /**
@@ -42,9 +42,12 @@ public:
 
     FileReader* fileReader();
 
+    ChecksumCalculatorManager* calculatorManager();
+
 private:
     const QFileInfo m_fileInfo;
     FileReader m_fileReader;
+    ChecksumCalculatorManager m_calculatorManager;
 };
 typedef QSharedPointer<FileHandle> pFileHandle;
 
